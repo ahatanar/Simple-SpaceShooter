@@ -7,6 +7,7 @@ function bulletgen(left,top){
         var bullet = document.createElement("div");
       bullet.classList.add("bullets");
       board.appendChild(bullet);
+      //moves bullet to the top of the spaceship
       bullet.style.bottom =  top + 'px';
       
       var movebullet = setInterval(() => {
@@ -28,7 +29,7 @@ function bulletgen(left,top){
               bulletbound.y < rockbound.y + rockbound.height &&
               bulletbound.y + bulletbound.height > rockbound.y
             ) {
-              //remove spaceship remove bullet increase points by 1
+              //remove enemy spaceship remove bullet increase points by 1
               rock.parentElement.removeChild(rock); 
               board.removeChild(bullet);
               document.getElementById("points").innerHTML =
@@ -42,7 +43,7 @@ function bulletgen(left,top){
               jetbound.y + jetbound.height > rockbound.y
             ) {
 
-              //game is over reload
+              //game is over remove enemyspaceship and reload
               alert("Game Over");
               rock.parentElement.removeChild(rock);
               window.location.reload();
@@ -61,7 +62,7 @@ function bulletgen(left,top){
         bullet.style.left = left + 10 + "px"; 
         bullet.style.bottom =  bulletbottom + 3 + "px";
       },1);
-      //set fire back tot rue
+      //set fire back to true
       fire = true;  
     
       }
