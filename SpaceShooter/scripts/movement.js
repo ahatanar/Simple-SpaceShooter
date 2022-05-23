@@ -1,13 +1,13 @@
-
+//keys variable to store inputs
 var keys = {};
-
+//addd inputs into keys variable when a key is pressed
 window.addEventListener('keydown', (e) => {
   
 
   keys[e.key] = true;
 
 });
-
+//reove inputs from keys variable when a key is unpressed
 window.addEventListener('keyup', (e) => {
 
     keys[e.key] = false;
@@ -21,7 +21,7 @@ function checkMovement(){
   var left = parseInt(window.getComputedStyle(jet).getPropertyValue("left"));
   var top = parseInt(window.getComputedStyle(jet).getPropertyValue("top"));
 
-  //simply movement
+  //simply movement Up Down Left and Right
   if (keys[' ']) 
   {
     bulletgen(left,topx);
@@ -92,7 +92,7 @@ function checkMovement(){
 
 
   
-  //movement and fire
+  //movement and fire checking if both is being done at the same time
   if (keys['ArrowUp'] && keys[' '] && top > 0 ) 
   {
     
